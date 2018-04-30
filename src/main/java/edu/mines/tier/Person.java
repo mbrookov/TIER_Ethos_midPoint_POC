@@ -5,6 +5,8 @@ import java.util.List;
 
 public class Person {
     private String id;
+    private String UDCID;
+    private String pidm;
     private String firstName;
     private String lastName;
     private String formatted;
@@ -14,6 +16,22 @@ public class Person {
     public Person() {
         email = new ArrayList<EMail>();
         phone = new ArrayList<Phone>();
+    }
+
+    public String getUDCID() {
+        return UDCID;
+    }
+
+    public void setUDCID(String UDCID) {
+        this.UDCID = UDCID;
+    }
+
+    public String getPidm() {
+        return pidm;
+    }
+
+    public void setPidm(String pidm) {
+        this.pidm = pidm;
     }
 
     public String getId() {
