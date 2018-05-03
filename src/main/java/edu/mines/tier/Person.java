@@ -10,12 +10,22 @@ public class Person {
     private String firstName;
     private String lastName;
     private String formatted;
+
+    private boolean ok;
     public List<EMail> email;
     public List<Phone> phone;
 
     public Person() {
         email = new ArrayList<EMail>();
         phone = new ArrayList<Phone>();
+    }
+
+    public boolean getOk() {
+        return ok;
+    }
+
+    public void setOk(boolean ok) {
+        this.ok = ok;
     }
 
     public String getUDCID() {

@@ -31,7 +31,11 @@
             <artifactId>json</artifactId>
             <version>20180130</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.rabbitmq/amqp-client -->
+        <dependency>
+            <groupId>com.rabbitmq</groupId>
+            <artifactId>amqp-client</artifactId>
+            <version>5.2.0</version>
+        </dependency>
     </dependencies>
-    <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
-
 </project>
