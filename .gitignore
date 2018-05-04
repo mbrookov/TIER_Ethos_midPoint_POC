@@ -3,4 +3,5 @@ test.json
 test-save.json
 Next.txt
 ethos2amqp.iml
-
+ethos2amqp.properties
+.DS_Store
