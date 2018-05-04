@@ -22,6 +22,21 @@ public class PublishMessage {
     private String routingKey = "midpoint_hr";
 
     public PublishMessage() {
+        startup();
+
+    }
+
+    public PublishMessage(String username, String password, String hostname, String virtualHost, String exchangeName, String routingKey) {
+        this.username=username;
+        this.password=password;
+        this.hostname=hostname;
+        this.virtualHost=virtualHost;
+        this.exchangeName=exchangeName;
+        this.routingKey= routingKey;
+        new PublishMessage();
+    }
+
+    private void startup() {
         factory = new ConnectionFactory();
         factory.setUsername(username);
         factory.setPassword(password);

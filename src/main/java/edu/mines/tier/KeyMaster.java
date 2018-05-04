@@ -24,6 +24,11 @@ public class KeyMaster {
         getKey();
     }
 
+    public KeyMaster(String key) {
+        apiKey=key;
+        getKey();
+    }
+
     public String getBearer() {
         /* Need to get a new key every 5 minutes */
         if ((timeKeyAcquierd.getEpochSecond() + 20) > Instant.now().getEpochSecond()) {

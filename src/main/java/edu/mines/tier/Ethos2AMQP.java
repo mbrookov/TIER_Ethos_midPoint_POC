@@ -1,8 +1,8 @@
 package edu.mines.tier;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.Iterator;
+import java.util.Properties;
 
 import jdk.nashorn.internal.runtime.JSONFunctions;
 import org.apache.commons.io.FileUtils;
@@ -13,10 +13,38 @@ public class Ethos2AMQP {
     public static void main(String[] args) {
         //readParseJson("test.json");
         //System.exit(0);
+        String apiKey;
+        String username;
+        String password;
+        String hostname;
+        String virtualHost;
+        String exchangeName;
+        String routingKey;
 
-        PublishMessage publisher = new PublishMessage();
+        Properties pr = new Properties();
+        InputStream in = null;
 
-        KeyMaster keyMaster = new KeyMaster();
+        try {
+            in = new FileInputStream("ethos2amqp.properties");
+            pr.load(in);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        apiKey = pr.getProperty("apiKey");
+        username = pr.getProperty("username");
+        password = pr.getProperty("password");
+        hostname = pr.getProperty("hostname");
+        virtualHost = pr.getProperty("virtualHost");
+        exchangeName = pr.getProperty("exchangeName");
+        routingKey = pr.getProperty("routingKey");
+
+        PublishMessage publisher = new PublishMessage(username,password,hostname,
+                virtualHost, exchangeName, routingKey);
+
+        KeyMaster keyMaster = new KeyMaster(apiKey);
         String b = keyMaster.getBearer();
         System.out.println("Bearer: " + b);
 
