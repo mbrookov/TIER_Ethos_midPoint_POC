@@ -33,7 +33,7 @@ public class PublishMessage {
         this.virtualHost=virtualHost;
         this.exchangeName=exchangeName;
         this.routingKey= routingKey;
-        new PublishMessage();
+        startup();
     }
 
     private void startup() {
